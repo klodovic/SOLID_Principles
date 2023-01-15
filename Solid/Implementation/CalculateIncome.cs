@@ -9,32 +9,20 @@ using System.Threading.Tasks;
 
 namespace Solid.Class
 {
-    public class CalculateIncome<T> : ICalculate<T> where T : class
+    public class CalculateIncome : ICalculateIncome
     {
-        public double CalculateHeavyIncome(List<LargeTrain> trains)
+        public double CalculateTotalIncome(List<SmallTrain> small, List<LargeTrain> large)
         {
             double income = 0;
-            foreach (var t in trains)
+            foreach (var t in small)
+            {
+                income = income + (double)t.Price;
+            }
+            foreach (var t in large)
             {
                 income = income + (double)t.Price;
             }
             return income;
-        }
-
-        public double CalculateLightIncome(List<SmallTrain> trains)
-        {
-            double income = 0;
-            foreach (var t in trains)
-            {
-                income = income + (double)t.Price;
-            }
-            return income;
-        }
-
-        public double CalculateSalary(double totalTicketIncome, int precentage)
-        {
-            double totalSalary = (totalTicketIncome * precentage) / 100;
-            return totalSalary;
         }
     }
 }

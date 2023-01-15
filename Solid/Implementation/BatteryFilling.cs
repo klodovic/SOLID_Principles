@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace Solid.Implementation
 {
-    public class FuelFilling : IChargingGas
+    public class BatteryFilling : IChargingBattery
     {
-        public List<GasVehicle> Fill(List<GasVehicle> vehicles)
+        public List<ElectricVehicle> Fill(List<ElectricVehicle> vehicles)
         {
-            List<GasVehicle> loadedVehicles = new List<GasVehicle>();
-            foreach (GasVehicle v in vehicles)
+            List<ElectricVehicle> loadedVehicles = new List<ElectricVehicle>();
+            foreach (ElectricVehicle v in vehicles)
             {
-                if (v.GasLevel < 10)
+                if (v.BatteryLevel < 10)
                 {
-                   loadedVehicles.Add(new GasVehicle(v.Name, 100));
+                    loadedVehicles.Add(new ElectricVehicle(v.Name, 100));
                 }
                 else
                 {

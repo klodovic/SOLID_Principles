@@ -32,11 +32,8 @@ namespace Solid
                 new LargeTrain(Enum.TrainType.Large, HeavyVehiclePrice.Truck)
             };
 
-            var h = new CalculateIncome<LargeTrain>().CalculateHeavyIncome(heavyVehicleTrains);
-            var l = new CalculateIncome<SmallTrain>().CalculateLightIncome(lightVehicleTrains);
-            var totalTicketIncome = h + l;
-
-            Console.WriteLine($"Total ticket income is: {totalTicketIncome}kn");
+            var income = new CalculateIncome().CalculateTotalIncome(lightVehicleTrains, heavyVehicleTrains);
+            Console.WriteLine($"Total ticket income is: {income}kn");
             Console.WriteLine();
 
 
@@ -45,7 +42,7 @@ namespace Solid
             Console.WriteLine("2. Osnovni zaposlenik terminala. Njegova plaća je 10%.");
             Console.ResetColor();
             Employee employee = new Employee("Marko", "Markic", Enum.Salary.Percent10);
-            var employeeSalary = new CalculateIncome<Employee>().CalculateSalary(totalTicketIncome, (int)employee.Salary);
+            var employeeSalary = new CalculateSalary().CalculateEmployeeSalary(income, (int)employee.Salary);
             Console.WriteLine(employee + $" salary = {employeeSalary}kn");
             Console.WriteLine();
 
@@ -76,7 +73,7 @@ namespace Solid
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Nakon punjenja...");
             Console.ResetColor();
-            var loadedVehicles = new FuelFilling<GasVehicle>().Fill(validVehicles);
+            var loadedVehicles = new FuelFilling().Fill(validVehicles);
             foreach (var v in loadedVehicles)
             {
                 Console.WriteLine(v);
@@ -88,7 +85,7 @@ namespace Solid
             Console.WriteLine("4. Dodajte još jednog zaposlenika terminala koji radi potpuno isti posao. Njegova je plaća 11%");
             Console.ResetColor();
             Employee emp = new Employee("Pero", "Peric", Enum.Salary.Percent11);
-            var empSalary = new CalculateIncome<Employee>().CalculateSalary(totalTicketIncome, (int)emp.Salary);
+            var empSalary = new CalculateSalary().CalculateEmployeeSalary(income, (int)emp.Salary);
             Console.WriteLine(emp + $" salary = {empSalary}kn");
             Console.WriteLine();
 
@@ -118,7 +115,7 @@ namespace Solid
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Nakon punjenja...");
             Console.ResetColor();
-            var loadedElectricVehicles = new FuelFilling<ElectricVehicle>().Fill(validElecticVehicles);
+            var loadedElectricVehicles = new BatteryFilling().Fill(validElecticVehicles);
             foreach (var v in loadedElectricVehicles)
             {
                 Console.WriteLine(v);
@@ -127,5 +124,6 @@ namespace Solid
 
 
         }
+
     }
 }

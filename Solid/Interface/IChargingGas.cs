@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Solid.Interface
 {
-    public interface ICharging<T> where T : class
+    public interface IChargingGas
     {
         List<GasVehicle> Fill(List<GasVehicle> vehicles);
-        List<ElectricVehicle> Fill(List<ElectricVehicle> electricVehicles);
     }
 }

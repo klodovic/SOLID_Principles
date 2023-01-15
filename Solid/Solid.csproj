@@ -76,12 +76,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\Salary.cs" />
+    <Compile Include="Implementation\BatteryFilling.cs" />
     <Compile Include="Implementation\CalculateIncome.cs" />
     <Compile Include="Enum\HeavyVehiclePrice.cs" />
     <Compile Include="Enum\TrainType.cs" />
+    <Compile Include="Implementation\CalculateSalary.cs" />
     <Compile Include="Implementation\FuelFilling.cs" />
-    <Compile Include="Interface\ICharging.cs" />
-    <Compile Include="Interface\ICalculate.cs" />
+    <Compile Include="Interface\ICalculateSalary.cs" />
+    <Compile Include="Interface\IChargingBattery.cs" />
+    <Compile Include="Interface\IChargingGas.cs" />
+    <Compile Include="Interface\ICalculateIncome.cs" />
     <Compile Include="Model\ElectricVehicle.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\GasVehicle.cs" />
